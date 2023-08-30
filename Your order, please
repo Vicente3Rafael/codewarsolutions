@@ -1,0 +1,30 @@
+public class Main {
+    public static void main(String[] args) {
+          System.out.println(order("is2 Thi1s T4est 3a"));
+    }
+
+    public static String order(String words) {
+        if(words.equals("")){
+            return "";
+        }
+        String[] palavras = words.split(" ");
+        String[] result = new String[palavras.length];
+
+        for(String palavra: palavras) {
+            for(int i=0;i<palavra.length();i++){
+                String letra = String.valueOf(palavra.charAt(i));
+                if(letra.matches("[0-9]+")){
+                    int number = Integer.parseInt(letra);
+                    result[number] = palavra;
+                }
+            }
+        }
+
+        String retorno = "";
+        for(String jooj: result) {
+            retorno = retorno + jooj + " ";
+        }
+
+        return retorno.substring(0, retorno.length() - 1);
+    }
+}
